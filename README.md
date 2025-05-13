@@ -1,6 +1,8 @@
-# MyFirstApp
+# Angular - Creating Dynamic Components
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 19.
+Implementing a sample to understand how to create and add dynamic components in Angular. This repo has an implementation that shows how using ViewContainerRef package we can achieve this.
+
 
 ## Development server
 
