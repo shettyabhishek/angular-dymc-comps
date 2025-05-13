@@ -3,6 +3,9 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 19.
 Implementing a sample to understand how to create and add dynamic components in Angular. This repo has an implementation that shows how using ViewContainerRef package we can achieve this.
 
+Angular 13 onwards there is no need to used the ComponentFactoryResolver for creating the the instance of the component to be added. 
+This could be achieved directly using the ViewContainerRef.
+
 
 ## Development server
 
