@@ -36,7 +36,24 @@
       </div>
     </div>
   </div>
-
-
   <ng-container attachAlert></ng-container>
+
+
+  <div class="flex flex-col md:flex-row p-2">
+    <div class="p-2  w-1/2">
+      <div class='border-1 border-slate-300 mt-1 p-1'>
+        <div class="bg-cyan-300 px-2 py-1 text-gray-700 font-bold">Dynamic Components with ngComponentOutlet & ngComponentOutletInputs</div>
+        <div class="px-1 py-1 text-sm">
+          This is one of the simplest way of loading dynamic components. The *ngComponentOutlet would be passed the instance of the component type to be rendered with input data if any.<br/>
+          <div class="bg-stone-200 p-2 my-1">
+            Syntax :
+              &lt;ng-template *ngComponentOutlet="someComponent; inputs: [prop1, prop2]"&gt;&lt;/ng-template&gt;
+          </div>
+          <div class="grid grid-cols-1">
+            <ng-container [ngComponentOutlet]="plrComp" [ngComponentOutletInputs]="{data: postData}"></ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

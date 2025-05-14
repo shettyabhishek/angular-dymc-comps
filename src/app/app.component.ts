@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgComponentOutlet } from '@angular/common';
 
 //Custom implementated services, components, directives and soon.
 import { AttachAlertDirective } from './directives/attach-alert.directive';
@@ -8,14 +8,13 @@ import { AlertComponentComponent } from './dyna-comps/alert-component/alert-comp
 import { ComponentData, ComponentInfo } from './models/componentInfo';
 import { AllComponentsListService } from './services/all-components-list.service';
 import { WrapperContainerDirective } from './directives/wrapper-container.directive';
-import { HeaderComponent } from './dyna-comps/header/header.component';
-import { BaseComponent } from './dyna-comps/baseComponent';
+import { PostsComponent } from './dyna-comps/posts/posts.component';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports:[CommonModule,AttachAlertDirective,WrapperContainerDirective],
+    imports:[CommonModule,AttachAlertDirective,WrapperContainerDirective,NgComponentOutlet],
     standalone: true,
 })
 
@@ -26,6 +25,8 @@ export class AppComponent implements OnInit, OnDestroy{
   subs: Subscription = new Subscription();
   allCompsList: Observable<ComponentInfo[]>;
   constructor(private _allCompsLstServ: AllComponentsListService){}
+  postData: ComponentData;
+  protected plrComp: Type<PostsComponent> | null = PostsComponent;
 
   //function to attache the alert component
   attachAlertComponent(): void{
@@ -56,8 +57,17 @@ export class AppComponent implements OnInit, OnDestroy{
     this.subs.add(obs);
   }
 
+  /**getPostsComponent(): PostsComponent{
+    return this.plrComp;
+  }**/
+
   ngOnInit():void{
-    //create a service which sends the list of components to be loaded dynamically
+    //Hardcoded data for testing
+    this.postData = {
+      content: 'Post', otherInfo: {
+        postedBy: 'Steve Jacobs', postedOn: new Date(), postTitle: 'Eurypylus', postContent: 'And Eurypylus, son of Euaemon, killed Hypsenor, the son of noble Dolopion, who had been made priest of the river Scamander, and was honoured among the people as though he were a god. Eurypylus gave him chase as he was flying before him, smote him with his sword upon the arm, and lopped his strong hand from off it. The bloody hand fell to the ground, and the shades of death, with fate that no man can withstand, came over his eyes. Thus furiously did the battle rage between them.'
+      }, colspan: 1, rowspan: 1
+    }
   }
 
   ngOnDestroy():void{
