@@ -6,6 +6,13 @@ Implementing a sample to understand how to create and add dynamic components in 
 Angular 13 onwards there is no need to used the ComponentFactoryResolver for creating the the instance of the component to be added. 
 This could be achieved directly using the ViewContainerRef.
 
+This repo has sample implemented covering 4 scenarios which could be using independently or combined as per the programmers need 
+- Implementing Dynamic component rendering using ViewContainerRef
+- Implementing Dynamic component rendering using ViewContainerRef, where the components are loaded from a config (JSON) file.
+- Implementing Dynamic component rendering using NgComponentOutlet attribute directive 
+- Implementing Dynamic component rendering using NgComponentOutlet attribute directive, when the component is Lazy Loaded.
+
+
 
 ## Development server
 
