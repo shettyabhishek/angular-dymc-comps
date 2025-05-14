@@ -27,6 +27,10 @@
     <div class="p-2  w-1/2">
       <div class='border-1 border-slate-300 mt-1 p-1 '>
         <div class="bg-cyan-300 px-2 py-1 text-gray-700 font-bold">Dynamic Components from config file(JSON)</div>
+        <div class="px-1 py-1 text-sm border-b-1 border-slate-300">
+          In this scenario the list of components to be loaded is obtained from a configuration(JSON) file.
+          Based on the component names / types and the data these components have to render this view gets rendered. This is primarily implemented using ViewContainerRef package.
+        </div>
         <div class="flex flex-row items-ends justify-end mb-1">
           <button class="bg-red-400 rounded-lg border-1 py-1 px-2 text-white text-sm mt-1 hover:bg-red-600 hover:cursor-pointer" (click)="loadComponents()">Load Components</button>
         </div>
@@ -53,6 +57,23 @@
             <ng-container [ngComponentOutlet]="plrComp" [ngComponentOutletInputs]="{data: postData}"></ng-container>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="p-2  w-1/2">
+      <div class='border-1 border-slate-300 mt-1 p-1'>
+        <div class="bg-cyan-300 px-2 py-1 text-gray-700 font-bold">Lazy Load Dynamic Components with ngComponentOutlet</div>
+        <div class="px-1 py-1 text-sm border-b-1 border-slate-300">
+          Implementing a sample to understand how a component can be lazy loaded dynamically. In this example we are implementing this scenario in 2 steps:
+          <ul class="list-disc">
+            <li>Create a ng-container with the NgComponentOutlet</li>
+            <li>Lazy load a component using the import method and assign the instance to the NgComponentOutlet attribute</li>
+          </ul>
+        </div>
+        <div class="flex flex-row items-ends justify-end">
+          <button *ngIf="lazyComp" class="bg-red-400 rounded-lg border-1 py-1 px-2 text-white text-sm mt-1 hover:bg-red-600 hover:cursor-pointer" (click)="destroyComponent()">Clear Component</button>
+          <button *ngIf="!lazyComp" class="bg-red-400 rounded-lg border-1 py-1 px-2 text-white text-sm mt-1 hover:bg-red-600 hover:cursor-pointer" (click)="lazyLoadComponent()">Lazy Load Component</button>
+        </div>
+        <ng-container [ngComponentOutlet]="lazyComp"></ng-container>
       </div>
     </div>
   </div>

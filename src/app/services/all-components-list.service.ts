@@ -20,7 +20,7 @@ export class AllComponentsListService {
         postedBy: 'John Doe', postedOn: new Date(), postTitle: 'Absence makes the heart grow fonder', postContent: 'Being away from someone or something for a period of time makes you appreciate that person or thing more when you see them or it again'
       }, colspan: 1, rowspan: 1}},
       {component: NoteComponent ,data: {content: 'Note', otherInfo: {
-        note: 'Fog everywhere. Fog up the river, where it flows among green aits and meadows; fog down the river, where it rolls deified among the tiers of shipping and the waterside pollutions of a great (and dirty) city. Fog on the Essex marshes, fog on the Kentish heights. Fog creeping into the cabooses of collier-brigs; fog lying out on the yards and hovering in the rigging of great ships; fog drooping on the gunwales of barges and small boats.'
+        note: 'Fog everywhere. Fog up the river, where it flows among green aits and meadows; fog down the river, where it rolls deified among the tiers of shipping and the waterside pollutions of a great (and dirty) city. Fog on the Essex marshes, fog on the Kentish heights.'
       }, colspan: 1, rowspan: 1}},
     ]
     return of(allComps);

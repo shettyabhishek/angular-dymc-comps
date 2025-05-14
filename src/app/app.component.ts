@@ -9,6 +9,7 @@ import { ComponentData, ComponentInfo } from './models/componentInfo';
 import { AllComponentsListService } from './services/all-components-list.service';
 import { WrapperContainerDirective } from './directives/wrapper-container.directive';
 import { PostsComponent } from './dyna-comps/posts/posts.component';
+import { BaseComponent } from './dyna-comps/baseComponent';
 
 @Component({
     selector: 'app-root',
@@ -27,6 +28,8 @@ export class AppComponent implements OnInit, OnDestroy{
   constructor(private _allCompsLstServ: AllComponentsListService){}
   postData: ComponentData;
   protected plrComp: Type<PostsComponent> | null = PostsComponent;
+  protected lazyComp:BaseComponent = null;
+
 
   //function to attache the alert component
   attachAlertComponent(): void{
@@ -60,6 +63,19 @@ export class AppComponent implements OnInit, OnDestroy{
   /**getPostsComponent(): PostsComponent{
     return this.plrComp;
   }**/
+
+  //This function imports a component lazily using the import function and assigns it to a
+  //variable which is used in the html template
+  lazyLoadComponent(): void{
+    import('./dyna-comps/lazy-loaded/lazy-loaded.component').then(comp => {
+      this.lazyComp = <BaseComponent>comp.LazyLoadedComponent;
+    });
+  }
+
+  //This function clears/destroys the dynamically loaded component
+  destroyComponent(): void{
+    this.lazyComp = null;
+  }
 
   ngOnInit():void{
     //Hardcoded data for testing
