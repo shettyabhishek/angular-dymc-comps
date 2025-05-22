@@ -20,6 +20,7 @@
     "@angular/router": "^19.2.10",
     "@tailwindcss/postcss": "^4.1.6",
     "bootstrap": "^5.0.1",
+    "postcss": "^8.5.3",
     "rxjs": "~6.6.0",
     "tailwindcss": "^4.1.6",
     "tslib": "^2.1.0",
